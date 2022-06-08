@@ -1,0 +1,35 @@
+.rating-wrapper{
+    display: grid;
+    gap: 20px;
+}
+.review-txt{
+    color: white;
+    font-size: 3rem;
+}
+
+.review-box{
+    color: white;
+    width: 500px;
+    height: 150px;
+    border: none;
+    padding: 15px;
+    font-size: 20px;
+    max-width: 500px;
+    background: rgb(30,30,30);
+    font-weight: bolder;
+    word-spacing: 7px;
+    border-radius: 30px;
+    letter-spacing: 3px;
+    outline: none;
+}
+
+.review-btn{
+    background-color: white;
+    color: black;
+    width: 90px;
+    height: 50px;
+    /* color: white; */
+    font-size: 20px;
+    border-radius: 12px;
+    outline: none;
+}

@@ -1,0 +1,25 @@
+.footer-wrapper {
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+}
+
+.footer-txt {
+    display: flex;
+    font-size: 30px;
+    color: white;
+    font-weight: bolder;
+    align-items: center;
+}
+
+.socials{
+    display: flex;
+    
+}
+
+.github-icon{
+    background-color: black;
+    width: 60px;
+}
+
+

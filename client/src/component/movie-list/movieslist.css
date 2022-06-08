@@ -1,0 +1,10 @@
+.movilist{
+    display: grid;
+    grid-template-rows: 4fr 4fr 4fr;
+    grid-template-columns: 4fr 4fr 4fr 4fr;
+    row-gap: 20px;
+    column-gap: 10px;
+    margin: 80px 20px;
+    /* margin-top: 80px;
+    margin-left: 50px; */
+}

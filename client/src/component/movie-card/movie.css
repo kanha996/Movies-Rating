@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+.movie-tile{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 5px;
+    margin: 5px 0;
+    height: fit-content;
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+
+.title-txt{
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: aqua;
+}
+
+.release-txt{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+
+}
+
+.media-type{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: yellow;
+}

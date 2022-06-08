@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+* {
+  box-sizing: border-box;
+  /* background-color: #39445a; */
+  background-color: black;
+  color: white; 
+}
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  top: 0;
+  font-family: 'Source Code Pro', monospace;
+  color: #ffffff;
+  align-items: center;
+  z-index: 100;
+  position: fixed;
+  box-shadow: 10px 1px 4px black;
+}
+
+/* .header-title {
+
+} */
+
+.title-name {
+    font-family: 'Source Code Pro', monospace;
+  /* font-family: "Permanent Marker", cursive; */
+  color: #fff;
+  font-size: 40px;
+  color: #ffffff;
+}
+
+/* .search-box {
+  /* margin-top: 10px; */
+
+.search-input {
+  height: 50px;
+  background-color: #fff;
+  border-radius: 22px;
+  width: 350px;
+  background: #ffffff;
+  border-radius: 15px;
+  outline: none;
+  font-size: 25px;
+  text-align: center;
+  border: 1px;
+  color: #3f3d56;
+}
+
+.border{
+    width: 110%;
+    background: black;
+    height: 4px;
+    margin: 20px auto;
+}
+
+.login-link{
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 37px;
+    color: red;
+}
+
+.login-btn{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,40 @@
+img{
+    background-color: white;
+}
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 22px;
+    height: 70px;
+    margin: 30px;
+    width: 80%;
+    background-color: white;
+    padding: 30px;
+}
+
+.delete-btn{
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 33px;
+    background-color: white;
+}
+
+.userid{
+    margin: 10px;
+    color: lightskyblue;
+    font-size: 20px;
+    background-color: white;
+}
+
+.comment{
+    font-size: 30px;
+    background-color: white;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

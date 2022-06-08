@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+}
+.page-body{
+    display: flex;
+    margin-top: 50px;
+    gap: 50px;
+    flex-direction: row-reverse;
+}
+
+.movie-poster-img{
+    height: 500px;
+}
+
+.movie-detail{
+    margin: 80px;
+}
+
+.movie-name-txt{
+    font-family: 'Martel Sans',sans-serif;
+    color: white;
+    font-size: 70px;
+}
+.movie-desc-txt{
+    font-size: 30px;
+    color: aliceblue;
+}
+
+.movie-rating-txt{
+    font-size: 20px;
+    color: white;
+}
+
+.movie-release-txt{
+    font-size: 16px;
+    color: white;
+}
+
+.trailer{
+    margin-top: 20px
+}
+
+.trailer-btn{
+    background-color: red;
+    height: 50px;
+    font-size: 17px;
+    border-radius: 50px;
+    width: 200px;
+    color: white;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
