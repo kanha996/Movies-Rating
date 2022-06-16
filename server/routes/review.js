@@ -6,14 +6,13 @@ require("dotenv").config();
 router.use(express.json());
 const movieratingdb = require("../model/moviereview");
 const { response } = require("express");
-const auth = require("../middleware/auth")
+const auth = require("../middleware/auth");
 
 router.post("/", (req, res) => {
-
   function movieAPi() {
     return axios
       .get(
-        `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}&page=3`
+        `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.API_KEY}&page=1`
       )
       .then((response) => {
         return response.data;
@@ -23,9 +22,27 @@ router.post("/", (req, res) => {
   Promise.all([movieAPi()]).then(function (response) {
     // console.log(response[0].re);
     for (let i = 0; i < response[0].results.length; i++) {
-      const { id } = response[0].results[i];
+      const {
+        id,
+        name,
+        title,
+        poster_path,
+        first_air_date,
+        release_date,
+        media_type,
+        overview,
+        vote_average
+      } = response[0].results[i];
       let rate = new ratingdb({
         movieID: id,
+        name: name,
+        title: title,
+        overview: overview,
+        vote_average: vote_average,
+        poster_path: poster_path,
+        first_air_date: first_air_date,
+        release_date: release_date,
+        media_type: media_type,
       });
       rate.save();
     }
@@ -35,7 +52,6 @@ router.post("/", (req, res) => {
 router.get("/:movieid", async (req, res) => {
   try {
     const response = await ratingdb.findOne({ movieID: req.params.movieid });
-    console.log(response);
     res.status(200).json(response);
   } catch (err) {
     res.status(500).json({ error: "error in fetching" });
@@ -62,5 +78,7 @@ router.put("/", async (req, res) => {
     res.status(500).send(err);
   }
 });
+
+
 
 module.exports = router;

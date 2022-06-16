@@ -14,9 +14,7 @@ function RatingPage(props) {
             movieid : movie,
             reviewTxt: postReview
         }
-        await axios.put('/review/',{
-            data
-        });
+        await axios.put('http://localhost:4000/api/review/',data);
     } 
   return (
     <>

@@ -1,27 +1,50 @@
-import React from "react";
-// import axios from 'axios';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
-  // const loginHandler = async () => {
-  //     try{
-  //         const res = await axios.post('/api/session').then(()=>{
-  //             window.alert("LOGIN SUCCESSFULLY")
-  //         })
-  //     } catch(error){
-  //         alert(error);
-  //     }
-  // };
+  const navigate = useNavigate();
+  const [email, setVerificationMail] = useState([]);
+  const [password, setVerificationWord] = useState([]);
+
+  const loginHandler = async () => {
+    console.log(email,password);
+      await axios
+        .post("http://localhost:4000/api/session", { email, password })
+        .then(() => {
+          window.alert("LOGIN SUCCESSFULLY");
+          navigate("/");
+          console.log("hii");
+        });
+  };
 
   return (
     <div className="login-main">
       <div className="login-wrapper">
         <div className="email-input">
           <span className="email-txt">E-Mail</span>
-          <input type="text" className="email-box" />
+          <input
+            type="text"
+            className="email-box"
+            onChange={(e) => setVerificationMail(e.target.value)}
+          />
         </div>
         <div className="password-input">
           <span className="password-txt">password</span>
-          <input type="password" className="password-box" />
+          <input
+            type="password"
+            className="password-box"
+            onChange={(e) => setVerificationWord(e.target.value)}
+          />
+        </div>
+        <div className="signin-wrapper">
+          <button type="submit" onClick={loginHandler}>
+            {" "}
+            SIGN-IN{" "}
+          </button>
+        </div>
+        <div className="signup-wrapper">
+          <Link to="/register">New Member!! Click Here</Link>
         </div>
       </div>
     </div>

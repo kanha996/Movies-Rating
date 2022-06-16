@@ -34,7 +34,7 @@ router.post("/", (req, res) => {
       const match = bcrypt.compareSync(password, user.password);
 
       if (!match) {
-        res.status(400).send({ error: "Enter valid email or password" });
+        res.status(404).send({ error: "Enter valid email or password" });
         return;
       }
 
@@ -56,5 +56,7 @@ router.delete("/delete", (req, res) => {
     res.status(500).send({ error: "Unable to delete Session" });
   }
 });
+
+
 
 module.exports = router;

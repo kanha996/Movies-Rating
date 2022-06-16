@@ -1,33 +1,44 @@
-import React from 'react';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Signup() {
+  const navigate = useNavigate
+  const [email, setEmail] = useState([]);
+  const [password, setPassword] = useState([]);
 
-    
-    return (
-        <div className='signup-main'>
-            <div className='signup-wrapper'>
-                <div className='input'>
-                    <span className='txt'>USER - ID</span>
-                    <input type="text" className='txt-box'/>
-                </div>
-                <div className='input'>
-                    <span className='txt'>fullName</span>
-                    <input type="text" className='txt-box'/>
-                </div>
-                <div className='input'>
-                    <span className='txt'>email</span>
-                    <input type="text" className='txt-box'/>
-                </div>
-                <div className='input'>
-                    <span className='txt'>passWord</span>
-                    <input type="password" className='txt-box'/>
-                </div>
-                <button className='sign-up-btn'> signup </button>
-                <button className='login'> login </button>
-            </div>
+  const postSignup = async () =>
+    await axios
+      .post("http://localhost:4000/api/register", { email, password })
+      .then(navigate("/login"));
 
+
+
+  return (
+    <div className="signup-main">
+      <div className="signup-wrapper">
+        <div className="input">
+          <span className="txt">USER - ID</span>
+          <input type="text" className="txt-box" />
         </div>
-    );
+        <div className="input">
+          <span className="txt">fullName</span>
+          <input type="text" className="txt-box" />
+        </div>
+        <div className="input">
+          <span className="txt">email</span>
+          <input type="text" className="txt-box" onChange={(e)=>setEmail(e.target.value)}/>
+        </div>
+        <div className="input">
+          <span className="txt">passWord</span>
+          <input type="password" className="txt-box" onChange={(e)=>setPassword(e.target.value)}/>
+        </div>
+        <button className="sign-up-btn" onClick={postSignup}> signup </button>
+        <Link to="/login">Already Registered!! Click here to login </Link>
+        {/* <button className='login'> login </button> */}
+      </div>
+    </div>
+  );
 }
 
 export default Signup;

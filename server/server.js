@@ -23,13 +23,13 @@ db.connect({ url })
     app.use(
       "/api",
       sessions({
-        genid: (req) => {
+        genid()  {
           return uuid();
         },
         store: new MongoStore({ client: db.getClient() }),
-        secret: "heheq12h3",
+        secret: "qwertyqwerty12345",
         resave: false,
-        saveUninitialized: true,
+        saveUninitialized: false,
       }),
       api
     );

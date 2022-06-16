@@ -6,22 +6,42 @@ import RatingPage from "../Rating-page/ratingpage";
 const axios = require("axios");
 
 function MoviePage() {
+  const [reviewsList, setReviewsList] = useState([]);
   const [id, setid] = useState([]);
   const [movieDetail, setMovieDetail] = useState([]);
-  let { movieid } = useParams();
+  const { movieid } = useParams();
 
   const info = async () => {
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=1b6c5548b651ca79c1b54bb8139164dc&language=en-US&query=${movieid}&page=&include_adult=false`
-    );
-    setMovieDetail(data.results[0]);
+    try {
+      const res = await axios.get(
+        `http://localhost:4000/api/review/${movieid}`
+      );
+      setMovieDetail(res.data);
+    } catch (error) {
+      window.alert(error);
+    }
   };
 
-  console.log(movieDetail.name);
+  const allRating = () => {
+    axios
+      .get(`http://localhost:4000/api/allratings/${movieid}`)
+      .then((response) => {
+        return response.data;
+      })
+      .then((data) => {
+        setReviewsList(data);
+      })
+      .catch((error) => {
+        window.alert(error);
+      });
+
+    // setReviewList(rate.data)
+  };
 
   useEffect(() => {
+    allRating();
     info();
-  });
+  }, []);
 
   //
 
@@ -46,7 +66,7 @@ function MoviePage() {
           <div className="movie-details">
             <div className="movie-name">
               <h1 className="movie-name-txt">
-                {movieDetail.name || movieDetail.original_title}
+                {movieDetail.name || movieDetail.title}
               </h1>
             </div>
             <div className="movie-desc">
@@ -70,7 +90,7 @@ function MoviePage() {
           </div>
         </div>
         <RatingPage id={movieid} />
-        {/* <RatingList id={movieDetail.id} /> */}
+        <RatingList reviewsList={reviewsList} />
       </div>
     </>
   );

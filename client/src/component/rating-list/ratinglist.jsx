@@ -1,34 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import RatingCard from '../rating-card/ratingcard';
 
-const axios = require('axios');
 
 
-function RatingList(props) {
-
-    const [reviewList, setReviewList] = useState([]);
-
-    const allRating =  () => {
-        const res = axios.get(
-          `http://www.localhost:4000/api/review/${props.id}`
-        );
-
-        setReviewList(res.data.rating)
-
-      };
-
-      useEffect(() => {
-            allRating();
-          },[]);
-
+function RatingList({reviewsList}) {
     
     return ( 
-        <div className='rating-list'>
-            <h1>REVIEWS</h1>
-            {reviewList.map((e)=>(
-                <RatingCard key={e.userid} id={e.userid} comment={e.reviewTxt}/>
-            ))}
-        </div>
+        // <div className='rating-list'>
+            
+        // </div>
+        <>
+        {reviewsList.map((e,index)=>(
+          <RatingCard key={e.index} id={e.userid || "Annoymous"} comment={e.reviewTxt}/>
+      ))}</>
+        
      );
 }
 
