@@ -8,11 +8,11 @@ function Login() {
   const [password, setVerificationWord] = useState([]);
 
   const loginHandler = async () => {
-    console.log(email,password);
       await axios
-        .post("http://localhost:4000/api/session", { email, password })
+        .post("http://localhost:3000/api/session", { email, password })
         .then(() => {
           window.alert("LOGIN SUCCESSFULLY");
+          localStorage.setItem("user", "Subho");
           navigate("/");
           console.log("hii");
         });

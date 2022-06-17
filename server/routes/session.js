@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const userCred = require("../model/loginDB");
+const auth = require("../middleware/auth");
+const userRegister = require("../model/registerDB");
 router.use(express.json());
 
 router.post("/", (req, res) => {
@@ -38,10 +40,9 @@ router.post("/", (req, res) => {
         return;
       }
 
-      req.session.userid = user.id;
+      req.session.userId = user.id;
       req.session.username = user.email;
-      // console.log(req.session.userid)
-      res.status(200).send({ success: `Hi ${email}` });
+      res.status(201).send({ success: `Hi ${email}` });
     })
     .catch(() => {
       res.status(500).send({ error: "Internal Server Error" });
@@ -50,13 +51,23 @@ router.post("/", (req, res) => {
 
 router.delete("/delete", (req, res) => {
   try {
-    delete req.session.userid;
+    delete req.session.userId;
     res.status(200).send("Session Ended");
   } catch (error) {
     res.status(500).send({ error: "Unable to delete Session" });
   }
 });
 
-
+router.get("/me", auth.authenticate, (req, res) => {
+  userRegister
+    .findOne({ email: req.session.username })
+    .then((user) => {
+      res.status(201).send(user);
+      localStorage.setItem("Kanhaiya");
+    })
+    .catch(() => {
+      res.status(500).send({ error: "Internal Server Error" });
+    });
+});
 
 module.exports = router;

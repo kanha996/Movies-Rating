@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const api = require("./app");
-const sessions = require("express-session");
+const session = require("express-session");
 const MongoStore = require("connect-mongo");
 require("dotenv").config();
 const cors = require('cors');
@@ -16,13 +16,13 @@ const url = process.env.MONGO_URL;
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 
 db.connect({ url })
   .then(() => {
     app.use(
       "/api",
-      sessions({
+      session({
         genid()  {
           return uuid();
         },

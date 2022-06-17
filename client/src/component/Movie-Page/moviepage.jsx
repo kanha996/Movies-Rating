@@ -14,7 +14,7 @@ function MoviePage() {
   const info = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:4000/api/review/${movieid}`
+        `http://localhost:3000/api/review/${movieid}`
       );
       setMovieDetail(res.data);
     } catch (error) {
@@ -24,7 +24,7 @@ function MoviePage() {
 
   const allRating = () => {
     axios
-      .get(`http://localhost:4000/api/allratings/${movieid}`)
+      .get(`http://localhost:3000/api/allratings/${movieid}`)
       .then((response) => {
         return response.data;
       })
@@ -34,13 +34,20 @@ function MoviePage() {
       .catch((error) => {
         window.alert(error);
       });
-
-    // setReviewList(rate.data)
   };
+  const currentUser = () =>{
+    console.log("fetch");
+    axios.get("http://localhost:3000/api/session/me").then((response)=>{
+      return response.data;
+    }).then((data)=>{
+      console.log(data);
+    })
+  }
 
   useEffect(() => {
     allRating();
     info();
+    currentUser();
   }, []);
 
   //
