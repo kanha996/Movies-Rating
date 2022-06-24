@@ -59,7 +59,7 @@ router.get("/:movieid", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { movieid, comment } = req.body;
+  const { movie_id, comment } = req.body;
 
   const username = req.session.username;
 
@@ -70,7 +70,7 @@ router.post("/", async (req, res) => {
 
   try {
     await ratingdb.findOneAndUpdate(
-      { movieID: movieid },
+      { movieID: movie_id },
       { $addToSet: { rating: review } }
     );
     res.status(200).send({ success: "review Added" });

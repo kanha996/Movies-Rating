@@ -8,3 +8,11 @@
     /* margin-top: 80px;
     margin-left: 50px; */
 }
+.search-box{
+    display: flex;
+    margin-top: 84px;
+    width: px;
+    height: 54px;
+    border-radius: 15px;
+    justify-content: center;
+}

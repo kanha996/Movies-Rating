@@ -42,7 +42,7 @@
   height: 50px;
   background-color: #fff;
   border-radius: 22px;
-  width: 350px;
+  width: 450px;
   background: #ffffff;
   border-radius: 15px;
   outline: none;
@@ -63,10 +63,16 @@
     font-family: 'Alfa Slab One', cursive;
     font-size: 37px;
     color: red;
+    margin-top: 10px;
 }
 
 .login-btn{
     display: flex;
     justify-content: center;
     background-color: black;
+}
+
+.login-icon{
+  background-color: black;
+  margin-right: 30px;
 }

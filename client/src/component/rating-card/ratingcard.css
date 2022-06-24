@@ -30,6 +30,8 @@ img{
     color: lightskyblue;
     font-size: 20px;
     background-color: white;
+    font-family: monospace;
+    font-weight: bolder;
 }
 
 .comment{

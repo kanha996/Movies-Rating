@@ -9,12 +9,12 @@ function Login() {
 
   const loginHandler = async () => {
       await axios
-        .post("http://localhost:3000/api/session", { email, password })
+        .post("/api/session", { email, password })
         .then(() => {
           window.alert("LOGIN SUCCESSFULLY");
-          localStorage.setItem("user", "Subho");
+          // localStorage.setItem("user", "Subho");
           navigate("/");
-          console.log("hii");
+          // console.log("hii");
         });
   };
 

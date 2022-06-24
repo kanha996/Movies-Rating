@@ -63,7 +63,6 @@ router.get("/me", auth.authenticate, (req, res) => {
     .findOne({ email: req.session.username })
     .then((user) => {
       res.status(201).send(user);
-      localStorage.setItem("Kanhaiya");
     })
     .catch(() => {
       res.status(500).send({ error: "Internal Server Error" });

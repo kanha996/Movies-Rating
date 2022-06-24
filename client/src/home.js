@@ -11,7 +11,7 @@ function HomePage() {
 
   const fetchList = async () => {
     const res = await axios.get(
-      "http://localhost:3000/api/all"
+      "http://localhost:4000/api/all"
     );
     fetchMovieList(res.data);
   };
