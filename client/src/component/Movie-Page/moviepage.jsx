@@ -29,7 +29,7 @@ function MoviePage() {
 
   const info = async () => {
     try {
-      const res = await axios.get(`/api/review/${movieid}`);
+      const res = await axios.get(`/api/review/${movieid}/`);
       setMovieDetail(res.data);
     } catch (error) {
       window.alert(error);
@@ -38,7 +38,7 @@ function MoviePage() {
 
   const allRating = () => {
     axios
-      .get(`/api/allratings/${movieid}`)
+      .get(`/api/allratings/${movieid}/`)
       .then((response) => {
         return response.data;
       })
@@ -50,9 +50,9 @@ function MoviePage() {
       });
   };
 
-  const currentUser = () => {
-    axios
-      .get("/api/session/me")
+  const currentUser = async () => {
+    await axios
+      .get("/api/session/me/")
       .then((response) => {
         return response.data;
       })
