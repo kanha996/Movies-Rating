@@ -54,7 +54,7 @@ router.get("/:movieid", async (req, res) => {
     const response = await ratingdb.findOne({ movieID: req.params.movieid });
     res.status(200).json(response);
   } catch (err) {
-    res.status(500).json({ error: "error in fetching" });
+    res.status(401).send(err);
   }
 });
 
