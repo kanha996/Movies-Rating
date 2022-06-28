@@ -11,11 +11,21 @@ function Login() {
   const loginHandler = async () => {
       await axios
         .post("/api/session", { email, password })
-        .then(() => {
-          window.alert("LOGIN SUCCESSFULLY");
-          // localStorage.setItem("user", "Subho");
-          navigate("/");
-          // console.log("hii");
+        .then((response) => {
+          if(response.status === 200){
+            window.alert("LOGIN SUCCESSFULLY");
+            navigate("/");
+          }
+          else if(response.status === 404){
+            window.alert("Enter Valid email or password")
+          }
+          else if(response.status === 201){
+            window.alert("No User Found");
+          }
+         
+          
+        }).catch((err)=>{
+          console.log(err);
         });
   };
 

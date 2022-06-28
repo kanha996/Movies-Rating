@@ -42,7 +42,7 @@ router.post("/", (req, res) => {
 
       req.session.userId = user.id;
       req.session.username = user.email;
-      res.status(201).send({ success: `Hi ${email}` });
+      res.status(200).send({ success: `Hi ${email}` });
     })
     .catch(() => {
       res.status(500).send({ error: "Internal Server Error" });
