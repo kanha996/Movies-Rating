@@ -19,7 +19,7 @@ function MoviePage() {
     const movie_id = movieid;
     const comment = postReview;
     try {
-      await axios.post("https://movierating-io.herokuapp.com/api/review/", { movie_id, comment });
+      await axios.post("/api/review/", { movie_id, comment });
       allRating();
     } catch (error) {
       alert("Session Expired! Please Login to Continue");
@@ -29,7 +29,7 @@ function MoviePage() {
 
   const info = async () => {
     try {
-      const res = await axios.get(`https://movierating-io.herokuapp.com/api/review/${movieid}`);
+      const res = await axios.get(`/api/review/${movieid}`);
       setMovieDetail(res.data);
     } catch (error) {
       window.alert(error);
@@ -38,7 +38,7 @@ function MoviePage() {
 
   const allRating = () => {
     axios
-      .get(`https://movierating-io.herokuapp.com/api/allratings/${movieid}`)
+      .get(`/api/allratings/${movieid}`)
       .then((response) => {
         return response.data;
       })
@@ -52,7 +52,7 @@ function MoviePage() {
 
   const currentUser = () => {
     axios
-      .get("https://movierating-io.herokuapp.com/api/session/me")
+      .get("/api/session/me")
       .then((response) => {
         return response.data;
       })
@@ -72,7 +72,7 @@ function MoviePage() {
       userid : id
     }
     try {
-      await axios.delete('https://movierating-io.herokuapp.com/api/review/',{data});
+      await axios.delete('/api/review/',{data});
       allRating()
     } catch (error) {
       console.log(error);

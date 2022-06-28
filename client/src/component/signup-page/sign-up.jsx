@@ -10,7 +10,7 @@ function Signup() {
 
   const postSignup = async () => {
     try {
-      await axios.post("https://movierating-io.herokuapp.com/api/register", {
+      await axios.post("/api/register", {
         email,
         password,
       });
