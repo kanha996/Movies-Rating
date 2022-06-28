@@ -4,15 +4,15 @@ const { on } = require("connect-mongo");
 dotenv.config();
 
 const connect = (dbObject) => {
-  const { url } = dbObject;
+  const { username , password , database } = dbObject;
 
-  mongourl = `${url}`;
+  url = `mongodb+srv://admin:admin1234@cluster0.uaqq7.mongodb.net/userLogin?retryWrites=true&w=majority` ;
   const connectionParams = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   };
 
-  return mongoose.connect(mongourl,connectionParams);
+  return mongoose.connect(url,connectionParams);
 };
 
 const getClient = () =>{

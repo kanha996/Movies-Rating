@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const axios = require("axios");
 const ratingdb = require("../model/ratingDB");
 require("dotenv").config();
 router.use(express.json());

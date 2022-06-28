@@ -1,7 +1,27 @@
 {
+  "name": "movies-rating",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "axios": "^0.27.2",
-    "client": "^0.0.1",
-    "react": "^18.1.0"
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.3.3",
+    "node-fetch": "^3.2.4",
+    "nodemon": "^2.0.16",
+    "uuid": "^8.3.2"
   }
 }
