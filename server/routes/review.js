@@ -98,25 +98,6 @@ router.delete("/", async (req, res) => {
     });
 });
 
-// router.post("/check", auth.authenticate, (req, res) => {
-//   const { movie_id } = req.body;
-//   const username = req.session.username;
 
-//   ratingdb
-//     .find({
-//       movieID: movie_id,
-//       rating: { $elemMatch: { userid: username } },
-//     })
-//     .then((data) => {
-//       if (data.length > 0) {
-//         res.status(200).send();
-//       } else if (data.length === 0) {
-//         res.status(204).send();
-//       }
-//     })
-//     .catch((err) => {
-//       res.status(500).send(err);
-//     });
-// });
 
 module.exports = router;
