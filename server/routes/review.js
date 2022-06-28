@@ -7,6 +7,7 @@ router.use(express.json());
 const movieratingdb = require("../model/moviereview");
 const { response } = require("express");
 const auth = require("../middleware/auth");
+const uuid = require("uuid").v4;
 
 // router.post("/", (req, res) => {
 //   function movieAPi() {
@@ -58,7 +59,7 @@ router.get("/:movieid", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", auth.authenticate, async (req, res) => {
   const { movie_id, comment } = req.body;
 
   const username = req.session.username;
@@ -79,6 +80,43 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.delete("/", async (req, res) => {
+  const { movie_id, userid } = req.body;
 
+  await ratingdb
+    .updateMany(
+      { movieID: movie_id },
+      {
+        $pull: { rating: { userid: userid } },
+      }
+    )
+    .then((response) => {
+      res.status(201).send(response);
+    })
+    .catch((err) => {
+      res.status(501).send(err);
+    });
+});
+
+// router.post("/check", auth.authenticate, (req, res) => {
+//   const { movie_id } = req.body;
+//   const username = req.session.username;
+
+//   ratingdb
+//     .find({
+//       movieID: movie_id,
+//       rating: { $elemMatch: { userid: username } },
+//     })
+//     .then((data) => {
+//       if (data.length > 0) {
+//         res.status(200).send();
+//       } else if (data.length === 0) {
+//         res.status(204).send();
+//       }
+//     })
+//     .catch((err) => {
+//       res.status(500).send(err);
+//     });
+// });
 
 module.exports = router;

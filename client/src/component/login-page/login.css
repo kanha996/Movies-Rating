@@ -1,0 +1,15 @@
+.login-main {
+  display: flex;
+  justify-content: center;
+}
+
+.signin-btn{
+    margin: 20px auto;
+    display: block;
+    padding: 10px 30px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #ddd;
+    color: #333;
+    font-size: 17px;
+}

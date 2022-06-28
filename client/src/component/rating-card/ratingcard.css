@@ -4,12 +4,12 @@ img{
 .card{
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: space-between; */
     background-color: white;
     border-radius: 22px;
-    height: 70px;
+    height: 85px;
     margin: 30px;
-    width: 80%;
+    width: 95%;
     background-color: white;
     padding: 30px;
 }
@@ -23,6 +23,7 @@ img{
     font-weight: 600;
     line-height: 33px;
     background-color: white;
+    font-family: monospace;
 }
 
 .userid{
@@ -32,11 +33,14 @@ img{
     background-color: white;
     font-family: monospace;
     font-weight: bolder;
+    width: 300px;
 }
 
 .comment{
+    text-align: center;
     font-size: 30px;
     background-color: white;
     color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 800px;
 }

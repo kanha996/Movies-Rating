@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../login-page/login.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -21,24 +22,24 @@ function Login() {
   return (
     <div className="login-main">
       <div className="login-wrapper">
-        <div className="email-input">
+        <div className="input">
           <span className="email-txt">E-Mail</span>
           <input
             type="text"
-            className="email-box"
+            className="txt-box"
             onChange={(e) => setVerificationMail(e.target.value)}
           />
         </div>
-        <div className="password-input">
+        <div className="input">
           <span className="password-txt">password</span>
           <input
             type="password"
-            className="password-box"
+            className="txt-box"
             onChange={(e) => setVerificationWord(e.target.value)}
           />
         </div>
         <div className="signin-wrapper">
-          <button type="submit" onClick={loginHandler}>
+          <button type="submit" onClick={loginHandler} className="signin-btn">
             {" "}
             SIGN-IN{" "}
           </button>

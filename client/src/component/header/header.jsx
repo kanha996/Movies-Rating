@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../header/header.css";
+import axios from 'axios';
 
 function Header() {
   const [userLogin, setUserLogin] = useState(false);
 
-  const checkLogin = () => {
-    
+  const checkLogin = async () => {
+    try{
+      await axios.get("/api/session/me");
+      setUserLogin(true);
+    } catch(error){
+      setUserLogin(false);
+    }
   };
 
+  useEffect(()=>{
+    checkLogin()
+  },[]);
+  
   return (
     <>
       <div className="header-main">
