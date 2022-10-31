@@ -19,7 +19,7 @@ function MoviePage() {
     const movie_id = movieid;
     const comment = postReview;
     try {
-      await axios.post("/api/review/", { movie_id, comment });
+      await axios.post("https://movieratingapi.onrender.com/api/review/", { movie_id, comment });
       allRating();
     } catch (error) {
       alert("Session Expired! Please Login to Continue");
@@ -29,7 +29,7 @@ function MoviePage() {
 
   const info = async () => {
     try {
-      const res = await axios.get(`/api/review/${movieid}/`);
+      const res = await axios.get(`https://movieratingapi.onrender.com/api/review/${movieid}/`);
       setMovieDetail(res.data);
     } catch (error) {
       window.alert(error);
@@ -38,7 +38,7 @@ function MoviePage() {
 
   const allRating = () => {
     axios
-      .get(`/api/allratings/${movieid}/`)
+      .get(`https://movieratingapi.onrender.com/api/allratings/${movieid}/`)
       .then((response) => {
         return response.data;
       })
@@ -52,7 +52,7 @@ function MoviePage() {
 
   const currentUser = async () => {
     await axios
-      .get("/api/session/me/")
+      .get("https://movieratingapi.onrender.com/api/session/me/")
       .then((response) => {
         return response.data;
       })
@@ -72,7 +72,7 @@ function MoviePage() {
       userid : id
     }
     try {
-      await axios.delete('/api/review/',{data});
+      await axios.delete('https://movieratingapi.onrender.com/api/review/',{data});
       allRating()
     } catch (error) {
       console.log(error);
