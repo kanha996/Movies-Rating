@@ -10,7 +10,7 @@ function Login() {
 
   const loginHandler = async () => {
       await axios
-        .post("/api/session", { email, password })
+        .post("https://movieratingapi.onrender.com/api/session", { email, password })
         .then((response) => {
           if(response.status === 200){
             window.alert("LOGIN SUCCESSFULLY");
