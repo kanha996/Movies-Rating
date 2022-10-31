@@ -10,7 +10,7 @@ function Signup() {
 
   const postSignup = async () => {
     try {
-      await axios.post("/api/register", {
+      await axios.post("https://movieratingapi.onrender.com/api/register", {
         email,
         password,
       });
