@@ -8,7 +8,7 @@ function Header() {
 
   const checkLogin = async () => {
     try{
-      await axios.get("/api/session/me");
+      await axios.get("https://movieratingapi.onrender.com/api/session/me");
       setUserLogin(true);
     } catch(error){
       setUserLogin(false);
