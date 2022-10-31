@@ -11,7 +11,7 @@ function HomePage() {
 
   const fetchList = async () => {
     const res = await axios.get(
-      "/api/all"
+      "https://movieratingapi.onrender.com/api/all"
     );
     fetchMovieList(res.data);
   };
