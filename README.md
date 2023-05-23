@@ -1,7 +1,9 @@
 # Movies-Rating
 
 •A movie rating web application where user can rate their favorite movies.
+
 •Added Authentication and Session for Each user.
+
 •Add Comment, delete a comment and read other comments.
 
 <img width="1440" alt="image" src="https://github.com/kanha996/Movies-Rating/assets/87825281/426781f4-0571-433f-aa2d-a25c1686b2a6">
