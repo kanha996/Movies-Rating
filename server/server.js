@@ -30,7 +30,7 @@ db.connect({ username , password , database })
         cookie: {
       secure: true,
       httpOnly: true
-    }
+    },
         store: new MongoStore({ client: db.getClient() }),
         secret: "qwertyqwerty12345",
         resave: false,
